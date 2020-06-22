@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="shortcut icon" href="../images/Imagem2.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body>
+    <!-- START NAV -->
+    <nav class="navbar is-white">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-text" href="../index.html" style="height:100%; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
+                    <!-- Painel de utilizador -->
+                    <figure class="image" >
+                        <img src="../images/Imagem2.svg" style="max-height:4rem;  margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px;" >
+                    </figure>
+                </a>
+                <div class="navbar-burger burger" data-target="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="navMenu" class="navbar-menu">
+                
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+    <div class="container" style="height: 100%;">
+        <div class="columns is-fullwidth">
+            <div class="column is-3 ">
+                <aside class="menu is-hidden-mobile">
+                    <p class="menu-label">
+                        Filtrar por categoria
+                    </p>
+                    <ul class="menu-list" id="filtros">
+                        
+                    </ul>
+                    <p class="menu-label">
+                        Filtrar por localização
+                    </p>
+                    <ul class="menu-list">
+                        <div class="control"> <li>
+                            
+                                 <li><a> <label class="radio">
+                                    <input type="radio" name="answer">
+                                    A menos de 5 Km
+                                  </label></a></li>
+                                  <li><a><label class="radio">
+                                    <input type="radio" name="answer">
+                                    A menos de 10 Km
+                                  </label></a></li>
+                                  <li><a><label class="radio">
+                                    <input type="radio" name="answer">
+                                    A menos de 15 Km
+                                  </label></a></li>
+                        </div>
+                        </li>
+                    </ul>
+
+                    <button onclick="filterByCategories()" class="menu-label is-centered">Aplicar filtros</button>
+                </aside>
+            </div>
+            <div class="container">
+                <div id="flow">
+                    <span class="flow-1"></span>
+                    <span class="flow-2"></span>
+                    <span class="flow-3"></span>
+                </div>
+                <div class="section" >
+                    <div class="box">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input id="inputText"class="input has-text-centered" type="search"
+                                    placeholder="» » » » » » Palavras-chave « « « « « «">
+                            </div>
+                            <div class="control">
+                                <a onclick="filterByName()" class="button is-info">Procurar</a>
+                            </div>
+                        </div>
+                        <div id="allEvents"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../views/style/bulma.js"></script>
+    <script src="../models/eventModel.js"></script>
+    <script src="../models/userModel.js"></script>
+
+    <script src="../controllers/userController.js"></script>
+    <script src="../controllers/eventController.js"></script>
+    <script src="../models/categoryModel.js"></script>
+    <script src="../controllers/categoryController.js"></script>
+
+    <script src="../views/listEventsView.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyD-k9CuUOXDDcMOxTg3ewQOGySyGnCmwlY"></script>
+
+</body>
+
+</html>

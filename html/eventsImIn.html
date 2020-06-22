@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel de Utilizador</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/admin.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <style>
+        body {
+            background-size: auto auto;
+            background: #F5F7FA
+        }
+
+        .stat-val {
+            font-size: 3em;
+            padding-top: 20px;
+            font-weight: bold;
+        }
+
+        .stat-key {
+            font-size: 1.4em;
+            font-weight: 200
+        }
+
+        .section.profile-heading .column.is-2-tablet.has-text-centered+.has-text-centered {
+            border-left: 1px dotted rgba(0, 0, 0, .2);
+        }
+
+        .container.profile {
+            margin-top: 1%;
+        }
+
+        .control.is-pulled-left span.select {
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+
+        .modal-card .content h1 {
+            padding: 40px 10px 10px;
+            border-bottom: 1px solid #dadada
+        }
+
+        .container.profile .profile-options .tabs ul li.link a {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #F1F1F1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- START NAV -->
+    <nav class="navbar is-white">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-text" href="../index.html" style="height:100%; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
+                    <!-- Painel de utilizador -->
+                    <figure class="image" >
+                        <img src="../images/Imagem2.svg" style="max-height:4rem;  margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px;" >
+                    </figure>
+                </a>
+                <div class="navbar-burger burger" data-target="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="navMenu" class="navbar-menu">
+                
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+    <div class="container" style="height: 100%;">
+        <div class="columns is-fullwidth">
+            <div class="column is-3 ">
+                <aside class="menu is-hidden-mobile">
+                    <p class="menu-label">
+                        Geral
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="profileUser.html">Perfil</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        Os meus eventos
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="addActivity.html">Criar evento</a></li>
+                        <li>
+                            <a href="manageActivities.html">Os meus eventos</a>
+                            <ul>
+                                <li><a href="requestsReceived.html">Pedidos de participação</a></li>
+                                <li><a href="requestsSent.html">Os meus pedidos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="menu-label">
+                        Eventos que participei
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="is-active">Ver eventos que participei</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <div class='columns'>
+                <div class='container profile'>
+                    <div class='modal' id='edit-preferences-modal'>
+                        <div class='modal-background'></div>
+                        <div class='modal-card'>
+                            <header class='modal-card-head'>
+                                <p class='modal-card-title'>Editar dados</p>
+                                <button class='delete'></button>
+                            </header>
+                            <section class='modal-card-body'>
+                                <label class='label'>Nome</label>
+                                <p class='control'>
+                                    <input id="nameModal" class='input'  type='text'>
+                                </p>
+                                <label class='label'>Password</label>
+                                <p class='control'>
+                                    <input id="passwordModal" class='input' type='password'>
+                                </p>
+                                <label class='label'>Email</label>
+                                <p class='control has-icon has-icon-right'>
+                                    <input id="emailModal" class='input' type='email' >
+                                </p>
+                                <label class='label'>Imagem de perfil</label>
+                                <p class='control has-icon has-icon-right'>
+                                    <input id="newFileModal" class='input' type='text' >
+                                </p>
+                            </section>
+                            <footer class='modal-card-foot'>
+                                <a class='button is-danger modal-save'>Save changes</a>
+                                <a class='button modal-cancel'>Cancel</a>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class='section profile-heading' style="max-width: 100%;">
+                        <div class='columns is-mobile is-multiline'>
+                            <div class='column is-2'>
+                                <span class='header-icon user-profile-image image is-64x64'>
+                                    <img alt='' id="userImage"class="is-rounded"
+                                        src='https://publicdomainvectors.org/photos/Female-Avatar-3.png'>
+                                </span>
+                            </div>
+                            <div class='column is-4-tablet is-10-mobile name'>
+                                <p>
+                                    <span id="username" class='title is-bold'>{{NOME}}</span>
+                                    <br>
+                                    <br>
+                                    <a onclick="fillEditForm()"class='button is-danger is-outlined' href='#' id='edit-preferences'
+                                        style='margin: 5px 0'>
+                                        Editar dados
+                                    </a>
+                                    <br>
+                                </p>
+                                <!-- <p class='tagline'>
+                                    The users profile bio would go here, of course.
+                                </p> -->
+                            </div>
+                            <div class='column is-2-tablet is-4-mobile has-text-centered' style="max-width: 100%;">
+                                <p class='stat-val' id="particitionsCount" style="font-size: 300%;"></p>
+                                <p class='stat-key' style="font-size: 130%;">Participações</p>
+                            </div>
+                            <div class='column is-2-tablet is-4-mobile has-text-centered' style="max-width: 100%;">
+                                <p class='stat-val'id="userLevel" style="font-size: 300%;"></p>
+                                <p class='stat-key' style="font-size: 130%;">Niveis</p>
+                                <br />
+                                <progress class="progress is-danger" value="90" max="100" id="userLevelBar"
+                                    style="max-width: 100%;">90%</progress>
+                            </div>
+                            <div class='column is-2-tablet is-4-mobile has-text-centered' style="max-width: 100%;">
+                                <p class='stat-val' id="hostCount" style="font-size: 300%;"></p>
+                                <p class='stat-key' style="font-size: 130%;">Eventos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='profile-options is-fullwidth'>
+                        <div class='tabs is-fullwidth is-medium'>
+                            <ul>
+                                <li class='link is-active'>
+                                    <a>
+                                        <span class='icon'>
+                                            <i class='fa fa-history'></i>
+                                        </span>
+                                        <span>Os eventos em que participei</span>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class='box' style='border-radius: 0px;'>
+                        <!-- Main container -->
+                        <div class='columns'>
+                            <div class='column is-3-tablet user-property-count has-text-centered'>
+                                <p class='subtitle is-5'>
+                                    <strong></strong>
+                                    10
+                                    <br>
+                                    Eventos
+                                </p>
+                            </div>
+                            <div class='column is-8'>
+                                <p class='control has-addons'>
+                                    <input class='input' placeholder='Procurar eventos em que participei'
+                                        style='width: 100% !important' type='text'>
+                                    <button class='button'>
+                                        Procurar
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="">
+                    <div class='columns is-mobile'>
+                        <div class='column is-narrow is-4-tablet is-4-mobile'>
+                            <div class='card'>
+                                <div class='card-image'>
+                                    <figure class='image is-4by3'>
+                                        <img alt='' src='http://placehold.it/300x225'>
+                                    </figure>
+                                </div>
+                                <div class='card-content'>
+                                    <div class='content'>
+                                        <span class='tag is-dark subtitle'>#1</span>
+                                        <p>Personal Notes on the Property (can be edited and saved automatically by
+                                            clicking in
+                                            and clicking out of text area).</p>
+                                    </div>
+                                </div>
+                                <footer class='card-footer'>
+                                    <a class='card-footer-item'>Compare</a>
+                                    <a class='card-footer-item'>Share</a>
+                                    <a class='card-footer-item'>Delete</a>
+                                </footer>
+                            </div>
+                            <br>
+                        </div>
+                        <div class='column is-narrow is-4-tablet is-4-mobile'>
+                            <div class='card'>
+                                <div class='card-image'>
+                                    <figure class='image is-4by3'>
+                                        <img alt='' src='http://placehold.it/300x225'>
+                                    </figure>
+                                </div>
+                                <div class='card-content'>
+                                    <div class='content'>
+                                        <span class='tag is-dark subtitle'>#2</span>
+                                        <p>Personal Notes on the Property (can be edited and saved automatically by
+                                            clicking in
+                                            and clicking out of text area).</p>
+                                    </div>
+                                </div>
+                                <footer class='card-footer'>
+                                    <a class='card-footer-item'>Compare</a>
+                                    <a class='card-footer-item'>Share</a>
+                                    <a class='card-footer-item'>Delete</a>
+                                </footer>
+                            </div>
+                            <br>
+                        </div>
+                        <div class='column is-narrow is-4'>
+                            <div class='card'>
+                                <div class='card-image'>
+                                    <figure class='image is-4by3'>
+                                        <img alt='' src='http://placehold.it/300x225'>
+                                    </figure>
+                                </div>
+                                <div class='card-content'>
+                                    <div class='content'>
+                                        <span class='tag is-dark subtitle'>#3</span>
+                                        <p>Personal Notes on the Property (can be edited and saved automatically by
+                                            clicking in
+                                            and clicking out of text area).</p>
+                                    </div>
+                                </div>
+                                <footer class='card-footer'>
+                                    <a class='card-footer-item'>Compare</a>
+                                    <a class='card-footer-item'>Share</a>
+                                    <a class='card-footer-item'>Delete</a>
+                                </footer>
+                            </div>
+                            <br>
+                        </div>
+                    </div>                        <div class='columns is-mobile'>
+
+                        <div class='column is-4 is-narrow'>
+                            <div class='card'>
+                                <div class='card-image'>
+                                    <figure class='image is-4by3'>
+                                        <img alt='' src='http://placehold.it/300x225'>
+                                    </figure>
+                                </div>
+                                <div class='card-content'>
+                                    <div class='content'>
+                                        <span class='tag is-dark subtitle'>#4</span>
+                                        <p>Personal Notes on the Property (can be edited and saved automatically by
+                                            clicking in
+                                            and clicking out of text area).</p>
+                                    </div>
+                                </div>
+                                <footer class='card-footer'>
+                                    <a class='card-footer-item'>Compare</a>
+                                    <a class='card-footer-item'>Share</a>
+                                    <a class='card-footer-item'>Delete</a>
+                                </footer>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../views/style/tabs.js"></script>
+
+    <script  type="text/javascript" src="../models/userModel.js"></script>
+    <script  type="text/javascript" src="../models/eventModel.js"></script>
+    <script  type="text/javascript" src="../models/categoryModel.js"></script>
+   
+    <script  type="text/javascript" src="../controllers/eventController.js"></script>
+    <script  type="text/javascript" src="../controllers/categoryController.js"></script>
+    <script  type="text/javascript" src="../controllers/userController.js"></script>
+    <script async type="text/javascript" src="../views/eventsImInView.js"></script>
+
+
+    <script async type="text/javascript" src="../views/style/bulma.js"></script>
+    <script async type="text/javascript" src="../views/style/profile.js"></script>
+
+</body>
+
+</html>
