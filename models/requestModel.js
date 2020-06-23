@@ -9,10 +9,10 @@ class Pedido {
     }
 }
 const req = [
-    new Pedido(0, "pedido1", 0, 1, "pendente"),
+    new Pedido(0, "pedido1", 3, 1, "pendente"),
     new Pedido(1, "pedido2", 1, 2, "pendente"),
     new Pedido(2, "pedido3", 2, 1, "pendente"),
-    new Pedido(3, "pedido4", 0, 1, "pendente")
+    new Pedido(3, "pedido4", 3, 1, "pendente")
 ]
 let pedidos = [];
 for (i in req) {

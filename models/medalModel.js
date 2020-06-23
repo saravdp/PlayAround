@@ -8,10 +8,10 @@ class Medalha {
     }
   }
   const medal = [
-    new Medalha(0, "cat1","https://images-na.ssl-images-amazon.com/images/I/91SgiHf4P4L._AC_SX466_.jpg",1),
-    new Medalha(1, "cat2","https://www.trophymaster.co.uk/ekmps/shops/westbridgford/images/aura-well-done-gold-medal-50mm-2-620695-dv-p.jpg",5),
-    new Medalha(2, "cat3","https://images-na.ssl-images-amazon.com/images/I/91SgiHf4P4L._AC_SX466_.jpg",10),
-    new Medalha(3, "cat4","https://www.trophymaster.co.uk/ekmps/shops/westbridgford/images/aura-well-done-gold-medal-50mm-2-620695-dv-p.jpg",15)
+    new Medalha(0, "Iniciante","https://images-na.ssl-images-amazon.com/images/I/91SgiHf4P4L._AC_SX466_.jpg",1),
+    new Medalha(1, "Elementar","https://www.trophymaster.co.uk/ekmps/shops/westbridgford/images/aura-well-done-gold-medal-50mm-2-620695-dv-p.jpg",5),
+    new Medalha(2, "Intermédio","https://images-na.ssl-images-amazon.com/images/I/91SgiHf4P4L._AC_SX466_.jpg",10),
+    new Medalha(3, "Avançado","https://www.trophymaster.co.uk/ekmps/shops/westbridgford/images/aura-well-done-gold-medal-50mm-2-620695-dv-p.jpg",15)
   ]
   let medalhas = [];
   for (i in medal) {

@@ -10,9 +10,10 @@ class Comentario {
     }
   }
 const coment= [
-  new Comentario(0, 0, 0, "Este é um comentário", "",false),
-  new Comentario(1, 1, 0, "Este é um comentário", "",false),
-  new Comentario(2, 2, 1, "Este é um comentário", "",false)
+  new Comentario(0, 0, 0, "Gostei muito deste evento", "",false),
+  new Comentario(1, 1, 0, "Como foi a recepção?", "",false),
+  new Comentario(2, 1, 0, "A recepção foi bastante agradável", "",false),
+  new Comentario(2, 2, 1, "Foi pena as condições meteorológicas", "",false)
   ]
   let comentarios= [];
   for (i in coment) {

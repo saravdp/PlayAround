@@ -1,4 +1,4 @@
-const container = document.getElementById('tableBody');
+const container = document.getElementById('tableBodyFed');
 
 
 
@@ -16,7 +16,7 @@ content += `<tr>
 `}
 container.innerHTML += content;
 
-var input = document.getElementById("searchUser");
+var input = document.getElementById("searchFed");
 
 // Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup", function(event) {
@@ -24,8 +24,12 @@ input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
     // Cancel the default action, if needed
     event.preventDefault();
-    filterByID(input.value)
+    
+    
+    //TODO filterByID(input.value)
+
+
     // Trigger the button element with a click
-    document.getElementById("myBtn").click();
+   // document.getElementById("myBtn").click();
   }
 });

@@ -7,9 +7,9 @@ class Categoria {
   }
 }
 const cat = [
-  new Categoria(0, "cat1"),
-  new Categoria(1, "cat2"),
-  new Categoria(2, "cat3")
+  new Categoria(0, "Yoga"),
+  new Categoria(1, "Tenis"),
+  new Categoria(2, "Futebol")
 ]
 let categorias = [];
 for (i in cat) {

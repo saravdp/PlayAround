@@ -74,7 +74,7 @@ function getMedalsIdsByNumberOfEvents(numEvents) {
     let medals = []
    
     for (let i in getAllMedals()) {
-        if(parseInt(numEvents)>getAllMedals()[i].numofEvents)
+        if(parseInt(numEvents)>=getAllMedals()[i].numofEvents)
         {
             medals.push(getAllMedals()[i])
         }
