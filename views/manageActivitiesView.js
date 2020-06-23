@@ -6,7 +6,7 @@ document.getElementById('userLevel').innerHTML = getUserLevel(getEventsFromUser(
 document.getElementById('userLevelBar').value = getUserLevelToNextLevel(getEventsFromUser(sessionStorage.getItem("loggedUser")).length)
 document.getElementById('username').innerHTML = getUserById(sessionStorage.getItem("loggedUser"))._nome
 document.getElementById('userImage').src = getUserById(sessionStorage.getItem("loggedUser")).foto
-function fillEditForm() {
+function fillEditFormUser() {
 
     //let userLogged= sessionStorage.getItem('loggedUser')
     let userInfo = getUserById(sessionStorage.getItem("loggedUser"))
@@ -120,7 +120,7 @@ function fillEditForm(click) {
 
     //let userLogged= sessionStorage.getItem('loggedUser')
     let eventInfo = getEventById(click)
-    let content1 = `  <div class='modal' id='edit-preferences-modal${click}'>
+    let content1 = `  <div class='modal' id='edit-preferences-modal1${click}'>
 <div class='modal-background'></div>
 
     <div class='modal-card'>
@@ -189,7 +189,7 @@ function fillEditForm(click) {
     }
     document.getElementById('categoriesList' + eventInfo.id).innerHTML = contentCategories
 
-    document.getElementById("edit-preferences-modal" + click).className += " is-active";
+    document.getElementById("edit-preferences-modal1" + click).className += " is-active";
     //document.getElementsByClassName(".modal-card-head button.delete, .modal-save, .modal-cancel").addEventListener("click", removeActive(click));
     const onSave = document.querySelectorAll('.modal-save');
     onSave.forEach(el => el.addEventListener('click', event => {
@@ -252,7 +252,7 @@ function fillEditForm(click) {
     const divs = document.querySelectorAll('.modal-card-head button.delete, .modal-save, .modal-cancel');
 
     divs.forEach(el => el.addEventListener('click', event => {
-        removeActive(click)
+        removeActiveActivity(click)
     }));
 
 
@@ -263,6 +263,11 @@ function fillEditForm(click) {
 function removeActive(click) {
 
     document.getElementById("edit-preferences-modal" + click).classList.remove("is-active")
+
+}
+function removeActiveActivity(click) {
+
+    document.getElementById("edit-preferences-modal1" + click).classList.remove("is-active")
 
 }
 function addNewMedal() {

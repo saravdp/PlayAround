@@ -58,7 +58,7 @@ function getUserLevel(events) {
 function getUserLevelToNextLevel(events) {
 
     let result = Math.ceil(events / 5) - (events / 5)
-    return 100- result * 100
+    return  result * 100
 }
 
 function sessionLogout() {

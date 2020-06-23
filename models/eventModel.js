@@ -117,7 +117,7 @@ function newEvent(title, image, category, date, location1, description, agenda) 
     newCom.push(JSON.parse(eventos)[i])
   }
   //id, titulo, anfitriao, imagem, categoria, data, descricao, coordenadasLat,coordenadasLng, aderentes, agenda
-  newCom.push(new Eventos(parseInt(getEventlastId()) + 1, title, sessionStorage.getItem("userLogged"), image, category, date, description, location1, location1, [], agenda))
+  newCom.push(new Eventos(parseInt(getEventlastId()) + 1, title, sessionStorage.getItem("loggedUser"), image, category, date, description, location1, location1, [], agenda))
 
   localStorage.setItem("Eventos", JSON.stringify(newCom));
   location.reload()

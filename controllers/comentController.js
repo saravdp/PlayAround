@@ -20,3 +20,19 @@ content += `<tr>
 `}
 container.innerHTML = content;
   }
+
+
+
+  function addNewComent(idEvent1, idUser, comentario1, timestamp, participante) {
+
+    newComent(idEvent1, idUser, comentario1, timestamp, participante)
+}
+function getComentsByIdEvent(idEvent){
+let coments =[]
+  for (let i in getAllComments()){
+    if(getAllComments()[i].idEvento == idEvent){
+      coments.push(getAllComments()[i])
+    }
+  }
+  return coments
+}

@@ -120,7 +120,7 @@ content += `
         </li>
       >`
 //END IF-------------------
-//LOL
+
 content += `
     </ul>
 </div>
@@ -255,6 +255,7 @@ content += `
     </div>
     <div class="tab-pane" id="pane-4">
         <div class="columns is-centered">
+        
             <div class="column is-fullwidth">
             <section class="container">
             <div class="columns">`
@@ -272,18 +273,49 @@ content += `
 //                 </div>` 
                 
                 content+=`
-                <div class="column is-fullwidth">
-                    <div class="box content" id="yourDiv">`
+                <div class="column is-fullwidth">`
+                for(let i in getComentsByIdEvent(idEvento)){
+                    var timestamp = getComentsByIdEvent(idEvento)[i].timestamp,
+                    date = new Date(timestamp * 1000),
+                    datevalues = date.toString("DD-MM-YYYY");
+
+                content+=`
+                <article class="post">
+							<h4>${getComentsByIdEvent(idEvento)[i].comentario}</h4>
+							<div class="media">
+								<div class="media-left">
+									<p class="image is-32x32">
+										<img src="${getUserById(getComentsByIdEvent(idEvento)[i].idUser).foto}">
+									</p>
+								</div>
+								<div class="media-content">
+									<div class="content">
+										<p>
+											<a href="#">${getUserById(getComentsByIdEvent(idEvento)[i].idUser)._nome}</a> ${datevalues} &nbsp;
+                                            
+                                            `
+                                            if (getComentsByIdEvent(idEvento)[i].participante== true){`
+                                            <span class="tag">Participante</span>`}`
+
+										</p>
+									</div>
+								</div>
+								<div class="media-right">
+									<span class="has-text-grey-light"><i class="fa fa-comments"></i> 1</span>
+								</div>
+							</div>
+						</article>`}
+                    content+=`<div class="box content" id="yourDiv">`
                     if (idUserLogged != null) {
     content += `             <br>   
 <div class="field">
 <label id="comentar" class="label">Comentário</label>
 <div class="control">
-    <textarea class="textarea is-small"></textarea>
+    <textarea id="comentContent"class="textarea is-small"></textarea>
 </div>
 </div>
 <div class="control">
-<button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Comentar</button>
+<button type="submit" onclick="submeterComentario()" class="button is-link is-fullwidth has-text-weight-medium is-medium">Comentar</button>
 </div>`
 }
 //foreach comment
@@ -448,3 +480,28 @@ function navbarcheckLogin() {
     container.innerHTML = content;
 }
 navbarcheckLogin()
+
+function submeterComentario(){
+    let comentario1= document.getElementById("comentContent").value
+    let idUser= sessionStorage.getItem("loggedUser")
+    let idEvent1= idEvento
+    let timestamp = Date.now()
+    let participante= false
+    for (let i in getEventById(idEvent1)){
+        
+        let participantes = getEventById(idEvent1)[i].aderentes
+        for(let j in participantes){
+            if(participantes[j] == idUser){
+                participante = true
+            }
+        }
+        //if(participantes)
+    }
+    newComent(idEvent1, idUser, comentario1, timestamp, participante)
+    //  this.idComentario = idComentario;
+    // this.idEvento = idEvento
+    // this.idUser = idUser;
+    // this.comentario = comentario
+    // this.timestamp = timestamp
+    // this.participante = participante
+}

@@ -63,3 +63,22 @@ function deleteComentario(idComent){
 function getAllComments(){
     return JSON.parse(comentarios)
 }
+
+function getComentlastId() {
+  let allComents = JSON.parse(localStorage.getItem("comentario"))
+  let lastId = JSON.stringify(allComents[allComents.length - 1].idComentario)
+  return lastId
+}
+function newComent(idEvent1, idUser, comentario1, timestamp, participante){
+  let newCom = []
+  for (let i in JSON.parse(comentarios)) {
+
+    newCom.push(JSON.parse(comentarios)[i])
+  }
+  //id, titulo, anfitriao, imagem, categoria, data, descricao, coordenadasLat,coordenadasLng, aderentes, agenda
+  newCom.push(new Comentario(parseInt(getComentlastId()) + 1, idEvent1, idUser, comentario1, timestamp, participante))
+
+  localStorage.setItem("comentario", JSON.stringify(newCom));
+  location.reload()
+
+}

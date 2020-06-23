@@ -58,21 +58,19 @@ function deleteRequest(idCategory) {
 function getAllRequests() {
     return JSON.parse(pedidos)
 }
-function getlastId() {
+function getRequestlastId() {
     let allrequests = JSON.parse(localStorage.getItem("Pedido"))
-    alert(allrequests.length)
     let lastId = JSON.stringify(allrequests[allrequests.length - 1].id)
     return lastId
 }
 function addRequest(descricao, idUser, idEvento, estado) {
     let newCom = []
-    alert(pedidos.length)
     for (let i in JSON.parse(pedidos)) {
 
         newCom.push(JSON.parse(pedidos)[i])
     }
 
-    newCom.push(new Pedido(parseInt(getlastId()) + 1, descricao, idUser, idEvento, estado))
+    newCom.push(new Pedido(parseInt(getRequestlastId()) + 1, descricao, idUser, idEvento, estado))
 
     localStorage.setItem("Pedido", JSON.stringify(newCom));
     alert("Adicionado!")
