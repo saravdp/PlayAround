@@ -60,10 +60,12 @@
     <nav class="navbar is-white">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item brand-text" href="../index.html" style="height:100%; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
+                <a class="navbar-item brand-text" href="../index.html"
+                    style="height:100%; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
                     <!-- Painel de utilizador -->
-                    <figure class="image" >
-                        <img src="../images/Imagem2.svg" style="max-height:4rem;  margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px;" >
+                    <figure class="image">
+                        <img src="../images/Imagem2.svg"
+                            style="max-height:4rem;  margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px;">
                     </figure>
                 </a>
                 <div class="navbar-burger burger" data-target="navMenu">
@@ -73,7 +75,7 @@
                 </div>
             </div>
             <div id="navMenu" class="navbar-menu">
-                
+
             </div>
         </div>
     </nav>
@@ -121,7 +123,7 @@
                             <section class='modal-card-body'>
                                 <label class='label'>Nome</label>
                                 <p class='control'>
-                                    <input id="nameModal" class='input'  type='text'>
+                                    <input id="nameModal" class='input' type='text'>
                                 </p>
                                 <label class='label'>Password</label>
                                 <p class='control'>
@@ -129,11 +131,11 @@
                                 </p>
                                 <label class='label'>Email</label>
                                 <p class='control has-icon has-icon-right'>
-                                    <input id="emailModal" class='input' type='email' >
+                                    <input id="emailModal" class='input' type='email'>
                                 </p>
                                 <label class='label'>Imagem de perfil</label>
                                 <p class='control has-icon has-icon-right'>
-                                    <input id="newFileModal" class='input' type='text' >
+                                    <input id="newFileModal" class='input' type='text'>
                                 </p>
                             </section>
                             <footer class='modal-card-foot'>
@@ -146,7 +148,7 @@
                         <div class='columns is-mobile is-multiline'>
                             <div class='column is-2'>
                                 <span class='header-icon user-profile-image image is-64x64'>
-                                    <img alt='' id="userImage"class="is-rounded"
+                                    <img alt='' id="userImage" class="is-rounded"
                                         src='https://publicdomainvectors.org/photos/Female-Avatar-3.png'>
                                 </span>
                             </div>
@@ -155,8 +157,8 @@
                                     <span id="username" class='title is-bold'>{{NOME}}</span>
                                     <br>
                                     <br>
-                                    <a onclick="fillEditForm()"class='button is-danger is-outlined' href='#' id='edit-preferences'
-                                        style='margin: 5px 0'>
+                                    <a onclick="fillEditForm()" class='button is-danger is-outlined' href='#'
+                                        id='edit-preferences' style='margin: 5px 0'>
                                         Editar dados
                                     </a>
                                     <br>
@@ -170,7 +172,7 @@
                                 <p class='stat-key' style="font-size: 130%;">Participações</p>
                             </div>
                             <div class='column is-2-tablet is-4-mobile has-text-centered' style="max-width: 100%;">
-                                <p class='stat-val'id="userLevel" style="font-size: 300%;"></p>
+                                <p class='stat-val' id="userLevel" style="font-size: 300%;"></p>
                                 <p class='stat-key' style="font-size: 130%;">Niveis</p>
                                 <br />
                                 <progress class="progress is-danger" value="90" max="100" id="userLevelBar"
@@ -194,24 +196,17 @@
                                         <span>Os eventos em que participei</span>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </div>
                     <div class='box' style='border-radius: 0px;'>
                         <!-- Main container -->
                         <div class='columns'>
-                            <div class='column is-3-tablet user-property-count has-text-centered'>
-                                <p class='subtitle is-5'>
-                                    <strong></strong>
-                                    10
-                                    <br>
-                                    Eventos
-                                </p>
-                            </div>
+                          
                             <div class='column is-8'>
                                 <p class='control has-addons'>
-                                    <input class='input' placeholder='Procurar eventos em que participei'
+                                    <input class='input' id="searchEv" placeholder='Procurar eventos em que participei'
                                         style='width: 100% !important' type='text'>
                                     <button class='button'>
                                         Procurar
@@ -220,104 +215,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="">
-                    <div class='columns is-mobile'>
-                        <div class='column is-narrow is-4-tablet is-4-mobile'>
-                            <div class='card'>
-                                <div class='card-image'>
-                                    <figure class='image is-4by3'>
-                                        <img alt='' src='http://placehold.it/300x225'>
-                                    </figure>
-                                </div>
-                                <div class='card-content'>
-                                    <div class='content'>
-                                        <span class='tag is-dark subtitle'>#1</span>
-                                        <p>Personal Notes on the Property (can be edited and saved automatically by
-                                            clicking in
-                                            and clicking out of text area).</p>
-                                    </div>
-                                </div>
-                                <footer class='card-footer'>
-                                    <a class='card-footer-item'>Compare</a>
-                                    <a class='card-footer-item'>Share</a>
-                                    <a class='card-footer-item'>Delete</a>
-                                </footer>
-                            </div>
-                            <br>
-                        </div>
-                        <div class='column is-narrow is-4-tablet is-4-mobile'>
-                            <div class='card'>
-                                <div class='card-image'>
-                                    <figure class='image is-4by3'>
-                                        <img alt='' src='http://placehold.it/300x225'>
-                                    </figure>
-                                </div>
-                                <div class='card-content'>
-                                    <div class='content'>
-                                        <span class='tag is-dark subtitle'>#2</span>
-                                        <p>Personal Notes on the Property (can be edited and saved automatically by
-                                            clicking in
-                                            and clicking out of text area).</p>
-                                    </div>
-                                </div>
-                                <footer class='card-footer'>
-                                    <a class='card-footer-item'>Compare</a>
-                                    <a class='card-footer-item'>Share</a>
-                                    <a class='card-footer-item'>Delete</a>
-                                </footer>
-                            </div>
-                            <br>
-                        </div>
-                        <div class='column is-narrow is-4'>
-                            <div class='card'>
-                                <div class='card-image'>
-                                    <figure class='image is-4by3'>
-                                        <img alt='' src='http://placehold.it/300x225'>
-                                    </figure>
-                                </div>
-                                <div class='card-content'>
-                                    <div class='content'>
-                                        <span class='tag is-dark subtitle'>#3</span>
-                                        <p>Personal Notes on the Property (can be edited and saved automatically by
-                                            clicking in
-                                            and clicking out of text area).</p>
-                                    </div>
-                                </div>
-                                <footer class='card-footer'>
-                                    <a class='card-footer-item'>Compare</a>
-                                    <a class='card-footer-item'>Share</a>
-                                    <a class='card-footer-item'>Delete</a>
-                                </footer>
-                            </div>
-                            <br>
-                        </div>
-                    </div>                        <div class='columns is-mobile'>
+                    <div id="containerdiv1" class="">
 
-                        <div class='column is-4 is-narrow'>
-                            <div class='card'>
-                                <div class='card-image'>
-                                    <figure class='image is-4by3'>
-                                        <img alt='' src='http://placehold.it/300x225'>
-                                    </figure>
-                                </div>
-                                <div class='card-content'>
-                                    <div class='content'>
-                                        <span class='tag is-dark subtitle'>#4</span>
-                                        <p>Personal Notes on the Property (can be edited and saved automatically by
-                                            clicking in
-                                            and clicking out of text area).</p>
-                                    </div>
-                                </div>
-                                <footer class='card-footer'>
-                                    <a class='card-footer-item'>Compare</a>
-                                    <a class='card-footer-item'>Share</a>
-                                    <a class='card-footer-item'>Delete</a>
-                                </footer>
-                            </div>
-                            <br>
-                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -325,13 +225,13 @@
 
     <script src="../views/style/tabs.js"></script>
 
-    <script  type="text/javascript" src="../models/userModel.js"></script>
-    <script  type="text/javascript" src="../models/eventModel.js"></script>
-    <script  type="text/javascript" src="../models/categoryModel.js"></script>
-   
-    <script  type="text/javascript" src="../controllers/eventController.js"></script>
-    <script  type="text/javascript" src="../controllers/categoryController.js"></script>
-    <script  type="text/javascript" src="../controllers/userController.js"></script>
+    <script type="text/javascript" src="../models/userModel.js"></script>
+    <script type="text/javascript" src="../models/eventModel.js"></script>
+    <script type="text/javascript" src="../models/categoryModel.js"></script>
+
+    <script type="text/javascript" src="../controllers/eventController.js"></script>
+    <script type="text/javascript" src="../controllers/categoryController.js"></script>
+    <script type="text/javascript" src="../controllers/userController.js"></script>
     <script async type="text/javascript" src="../views/eventsImInView.js"></script>
 
 

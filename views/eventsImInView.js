@@ -107,3 +107,61 @@ function navbarcheckLogin() {
     container.innerHTML = content;
 }
 navbarcheckLogin()
+
+
+
+
+//CODIGO DA PAGINA
+
+const container = document.getElementById('containerdiv1');
+
+
+let content = ``
+let eventsIds = getEventsFromUser(sessionStorage.getItem("loggedUser"))
+let numberofLines = Math.ceil(eventsIds.length / 3)
+let cont = 0;
+for (let j = 0; j <= numberofLines; j++) {
+    content += `<div class='columns is-mobile'>`
+    for (let i = 0; i < 3; i++) {
+        let events = getEventById(eventsIds[cont])
+
+        if (cont < eventsIds.length) {
+            content += `<div class='column is-narrow is-4-tablet is-4-mobile'>
+<div class='card'>
+    <div class='card-image'>
+        <figure class='image is-4by3'>
+            <img alt='' src='${events.imagem}'>
+        </figure>
+    </div>
+    <div class='card-content'>
+        <div class='content'>
+            <!--<span class='tag is-dark subtitle'>#1</span>-->
+            <p>${events.titulo}</p>
+        </div>
+    </div>
+    <footer class='card-footer'>
+        <a href="singleEvent.html?idEvent=${events.id}" class='card-footer-item'>Ver evento</a>
+    </footer>
+</div>
+<br>
+</div>
+`}
+        cont++;
+    }
+    content += `</div>`
+}
+container.innerHTML += content;
+
+var input = document.getElementById("searchEv");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        filterUserEventsByName(input.value)
+        // Trigger the button element with a click
+        //document.getElementById("myBtn").click();
+    }
+});

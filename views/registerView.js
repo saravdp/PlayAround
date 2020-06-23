@@ -1,6 +1,6 @@
 function register1(){
 
-let lastId = getlastId()
+let lastId = parseInt(getlastId())+1
 let newUser = new User(
     lastId, 
     document.getElementById("name").value,

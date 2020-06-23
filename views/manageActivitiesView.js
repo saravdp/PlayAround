@@ -70,7 +70,7 @@ let cont = 0;
 for (let j = 0; j <= numberofLines; j++) {
     content += `<div class='columns is-mobile'>`
     for (let i = 0; i < 3; i++) {
-let events= getEventById(eventsIds[cont])
+        let events = getEventById(eventsIds[cont])
 
         if (cont < eventsIds.length) {
             content += `<div class='column is-narrow is-4-tablet is-4-mobile'>
@@ -179,15 +179,15 @@ function fillEditForm(click) {
                                 <a onlick ="removeActive(${eventInfo.id})"class='button modal-cancel'>Cancel</a>
                             </footer>
                         </div></div>`
-                        
+
     document.getElementById('modal-div').innerHTML += content1
     //Adicionar categorias
-let contentCategories = ``
-for (let i in getAllCategories()) {
+    let contentCategories = ``
+    for (let i in getAllCategories()) {
 
-    contentCategories += `<option value="${getAllCategories()[i].idCategoria}">${getAllCategories()[i].titulo}</option>`
-}
-document.getElementById('categoriesList'+eventInfo.id).innerHTML = contentCategories
+        contentCategories += `<option value="${getAllCategories()[i].idCategoria}">${getAllCategories()[i].titulo}</option>`
+    }
+    document.getElementById('categoriesList' + eventInfo.id).innerHTML = contentCategories
 
     document.getElementById("edit-preferences-modal" + click).className += " is-active";
     //document.getElementsByClassName(".modal-card-head button.delete, .modal-save, .modal-cancel").addEventListener("click", removeActive(click));
@@ -202,7 +202,7 @@ document.getElementById('categoriesList'+eventInfo.id).innerHTML = contentCatego
             newtitulo = eventInfo.titulo
         }
         let categoriesList;
-        let selected =document.getElementById('categoriesList' + eventInfo.id).options[document.getElementById('categoriesList' + eventInfo.id).selectedIndex].value
+        let selected = document.getElementById('categoriesList' + eventInfo.id).options[document.getElementById('categoriesList' + eventInfo.id).selectedIndex].value
         if (document.getElementById('categoriesList' + eventInfo.id).value != eventInfo.categoria && document.getElementById('categoriesList' + eventInfo.id).value.trim != " ") {
             categoriesList = document.getElementById('categoriesList' + eventInfo.id).value
         } else {
@@ -244,7 +244,7 @@ document.getElementById('categoriesList'+eventInfo.id).innerHTML = contentCatego
             newDescricao = eventInfo.descricao
         }
 
-        updateEvent(click, newtitulo, sessionStorage.getItem("loggedUser"),newFoto, categoriesList, newData, newmap, newAgenda, newDescricao)
+        updateEvent(click, newtitulo, sessionStorage.getItem("loggedUser"), newFoto, categoriesList, newData, newmap, newAgenda, newDescricao)
 
     }));
 
